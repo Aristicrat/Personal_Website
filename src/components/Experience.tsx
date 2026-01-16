@@ -1,3 +1,5 @@
+import GlassSurface from "./ui/GlassSurface";
+
 interface ExperienceItem {
     title: string;
     company: string;
@@ -83,9 +85,12 @@ export default function Experience() {
 
                 <div className="space-y-8">
                     {experiences.map((exp, index) => (
-                        <div
+                        <GlassSurface
                             key={index}
-                            className="glass-card p-6 hover-glow relative overflow-hidden"
+                            className="p-6 hover-glow relative overflow-hidden"
+                            borderRadius={16}
+                            borderWidth={0.5}
+                            backgroundOpacity={0.05}
                         >
                             {/* Accent line */}
                             <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-500 to-accent-500" />
@@ -113,7 +118,7 @@ export default function Experience() {
                                     ))}
                                 </ul>
                             </div>
-                        </div>
+                        </GlassSurface>
                     ))}
                 </div>
             </div>

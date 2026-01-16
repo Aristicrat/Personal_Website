@@ -1,3 +1,5 @@
+import GlassSurface from "./ui/GlassSurface";
+
 interface EducationItem {
     degree: string;
     institution: string;
@@ -32,9 +34,9 @@ export default function Education() {
                 </h2>
 
                 {/* Education */}
-                <div className="mb-12">
+                <div className="mb-12 space-y-6">
                     {education.map((edu, index) => (
-                        <div key={index} className="glass-card p-6 hover-glow">
+                        <GlassSurface key={index} className="p-6 hover-glow" borderRadius={16}>
                             <div className="flex flex-col md:flex-row md:items-start gap-4">
                                 {/* Icon */}
                                 <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center flex-shrink-0">
@@ -88,7 +90,7 @@ export default function Education() {
                                     )}
                                 </div>
                             </div>
-                        </div>
+                        </GlassSurface>
                     ))}
                 </div>
 

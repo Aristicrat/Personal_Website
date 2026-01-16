@@ -1,3 +1,5 @@
+import GlassSurface from "./ui/GlassSurface";
+
 interface Project {
     title: string;
     description: string;
@@ -60,9 +62,10 @@ export default function Projects() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                     {projects.map((project, index) => (
-                        <div
+                        <GlassSurface
                             key={index}
-                            className="glass-card p-6 hover-glow group flex flex-col"
+                            className="p-6 hover-glow group flex flex-col"
+                            borderRadius={16}
                         >
                             <div className="flex-1">
                                 <div className="flex items-start justify-between mb-3">
@@ -97,7 +100,7 @@ export default function Projects() {
                                     </span>
                                 ))}
                             </div>
-                        </div>
+                        </GlassSurface>
                     ))}
                 </div>
             </div>

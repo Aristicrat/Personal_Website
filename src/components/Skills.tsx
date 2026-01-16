@@ -1,3 +1,5 @@
+import GlassSurface from "./ui/GlassSurface";
+
 interface SkillCategory {
     name: string;
     skills: string[];
@@ -32,7 +34,7 @@ export default function Skills() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                     {skillCategories.map((category, index) => (
-                        <div key={index} className="glass-card p-6 hover-glow">
+                        <GlassSurface key={index} className="p-6 hover-glow" borderRadius={16}>
                             <h3 className="text-lg font-semibold text-white mb-4">
                                 {category.name}
                             </h3>
@@ -49,7 +51,7 @@ export default function Skills() {
                                     </span>
                                 ))}
                             </div>
-                        </div>
+                        </GlassSurface>
                     ))}
                 </div>
             </div>

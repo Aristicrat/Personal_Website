@@ -1,3 +1,5 @@
+import GlassSurface from "./ui/GlassSurface";
+
 export default function About() {
     return (
         <section id="about" className="py-20 px-6">
@@ -6,7 +8,7 @@ export default function About() {
                     About <span className="gradient-text">Me</span>
                 </h2>
 
-                <div className="glass-card p-8 hover-glow">
+                <GlassSurface className="p-8 hover-glow" borderRadius={16}>
                     <p className="text-gray-300 text-lg leading-relaxed mb-6">
                         I&apos;m a Mathematics graduate from Hofstra University with a focus on Actuarial Science,
                         passionate about transforming complex data into actionable insights. My background combines
@@ -28,7 +30,7 @@ export default function About() {
                         Based in New York City, I&apos;m always open to new opportunities in data analytics,
                         financial technology, and risk management.
                     </p>
-                </div>
+                </GlassSurface>
             </div>
         </section>
     );

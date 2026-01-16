@@ -1,3 +1,5 @@
+import GlassSurface from "./ui/GlassSurface";
+
 interface LeadershipItem {
     role: string;
     organization: string;
@@ -32,7 +34,7 @@ export default function Leadership() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                     {leadership.map((item, index) => (
-                        <div key={index} className="glass-card p-6 hover-glow">
+                        <GlassSurface key={index} className="p-6 hover-glow" borderRadius={16}>
                             <div className="flex items-start gap-4">
                                 {/* Icon */}
                                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-orange-500 to-accent-500 flex items-center justify-center flex-shrink-0">
@@ -58,7 +60,7 @@ export default function Leadership() {
                                     <p className="text-gray-400 text-sm">{item.description}</p>
                                 </div>
                             </div>
-                        </div>
+                        </GlassSurface>
                     ))}
                 </div>
             </div>
