@@ -60,7 +60,7 @@ export default function EasterEggNav() {
 
             {showNav && (
                 <a
-                    href="#music"
+                    href="/music"
                     className="pointer-events-auto inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary-500/70 via-accent-500/70 to-orange-500/70 text-white text-sm shadow-lg shadow-primary-500/20 border border-white/15 hover:translate-y-[-1px] transition-transform"
                 >
                     <span className="font-semibold">Music</span>

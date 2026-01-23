@@ -1,6 +1,5 @@
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Music from "@/components/Music";
 import Experience from "@/components/Experience";
 import Education from "@/components/Education";
 import Skills from "@/components/Skills";
@@ -13,7 +12,6 @@ export default function Home() {
         <main className="min-h-screen">
             <Hero />
             <About />
-            <Music />
             <Experience />
             <Education />
             <Leadership />
