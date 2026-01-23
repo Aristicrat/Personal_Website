@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 import GlassSurface from "./ui/GlassSurface";
 
+const audioSrc = "/audio/ps3-orchestra.mp3";
+
 interface Instrument {
     name: string;
     voice: string;
@@ -56,6 +58,20 @@ const unlockSequence = ["m", "u", "s", "i", "c"];
 export default function Music() {
     const [secretUnlocked, setSecretUnlocked] = useState(false);
     const [progress, setProgress] = useState(0);
+    const [audio] = useState(() => {
+        if (typeof window === "undefined") return null;
+        const el = new Audio(audioSrc);
+        el.volume = 0.6;
+        return el;
+    });
+
+    const handleEncoreClick = () => {
+        if (audio) {
+            audio.currentTime = 0;
+            audio.play().catch(() => {});
+        }
+        setSecretUnlocked(true);
+    };
 
     // Easter egg: typing M-U-S-I-C unlocks the encore panel. A click on the note badge does the same.
     useEffect(() => {
@@ -107,7 +123,7 @@ export default function Music() {
 
                     <button
                         type="button"
-                        onClick={() => setSecretUnlocked(true)}
+                        onClick={handleEncoreClick}
                         className="self-start inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary-500/40 bg-primary-500/10 text-primary-200 text-sm hover:border-accent-400 hover:text-accent-200 transition-colors"
                         aria-label="Unlock hidden encore"
                     >
