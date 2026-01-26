@@ -60,8 +60,9 @@ export default function Hero() {
                         View Experience
                     </a>
                     <a
-                        href="/Roger_Aristizabal_Resume.pdf"
-                        download
+                        href="/Resume_Aristizabal.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="px-8 py-4 rounded-full border border-gray-600 text-gray-300 
                        font-semibold hover:border-accent-500 hover:text-accent-400 transition-all
                        flex items-center gap-2 justify-center"
