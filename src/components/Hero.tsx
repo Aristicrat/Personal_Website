@@ -24,9 +24,18 @@ export default function Hero() {
                 </h1>
 
                 {/* Tagline */}
-                <p className="text-xl md:text-2xl text-gray-400 mb-8">
+                <p className="text-xl md:text-2xl text-gray-400 mb-4">
                     Data Analyst & Risk Modeling Professional
                 </p>
+
+                {/* Availability Badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 mb-8">
+                    <span className="relative flex h-2.5 w-2.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                    </span>
+                    <span className="text-green-400 text-sm font-medium">Open to new opportunities</span>
+                </div>
 
                 {/* Brief intro */}
                 <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-12">

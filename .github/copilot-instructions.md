@@ -6,10 +6,10 @@ A modern, responsive portfolio website built with **Next.js 15** (App Router), *
 ## Architecture & Key Patterns
 
 ### Component Structure
-- **Page Layout**: Single-page portfolio with sequential sections rendered in [src/app/page.tsx](src/app/page.tsx)
-- **Section Components**: Modular section components (`Hero`, `About`, `Experience`, `Skills`, `Projects`, `Contact`, `Leadership`, `Education`) located in [src/components/](src/components/)
-- **Root Layout**: [src/app/layout.tsx](src/app/layout.tsx) manages metadata, background gradient orbs, and `EasterEggNav` overlay
-- **UI Component**: `GlassSurface` ([src/components/ui/GlassSurface.tsx](src/components/ui/GlassSurface.tsx)) is a client-side component with canvas-based glass morphism effects, distortion mapping, and complex props for customization
+- **Page Layout**: Single-page portfolio with sequential sections rendered in `src/app/page.tsx`
+- **Section Components**: Modular section components (`Hero`, `About`, `Experience`, `Skills`, `Projects`, `Contact`, `Leadership`, `Education`) located in `src/components/`
+- **Root Layout**: `src/app/layout.tsx` manages metadata, background gradient orbs, and `EasterEggNav` overlay
+- **UI Component**: `GlassSurface` (`src/components/ui/GlassSurface.tsx`) is a client-side component with canvas-based glass morphism effects, distortion mapping, and complex props for customization
 
 ### Client vs Server Components
 - Server-side by default (all section components are RSC)
@@ -18,12 +18,12 @@ A modern, responsive portfolio website built with **Next.js 15** (App Router), *
 
 ### Design System
 - **Colors**: Primary (cyan gradient: `#0ea5e9`), Accent (magenta: `#d946ef`), Orange (`#f97316`)
-- **Custom Classes** ([src/app/globals.css](src/app/globals.css)):
+- **Custom Classes** (`src/app/globals.css`):
   - `.glass-card`: Semi-transparent background with backdrop blur
   - `.gradient-text`: Text with gradient fill (primary → accent → orange)
   - `.hover-glow`: Cyan glow effect on hover
   - `.gradient-border`: Animated border with gradient (currently blue/magenta)
-- **Tailwind Extensions**: Custom animations (`fade-in`, `slide-up`, `float`) and extended color palette in [tailwind.config.ts](tailwind.config.ts)
+- **Tailwind Extensions**: Custom animations (`fade-in`, `slide-up`, `float`) and extended color palette in `tailwind.config.ts`
 
 ### Path Aliases
 - `@/*` resolves to `./src/*` for clean imports (e.g., `@/components/Hero`)
@@ -39,25 +39,25 @@ npm run lint       # ESLint check (Next.js config)
 ```
 
 ### Adding New Sections
-1. Create component in [src/components/](src/components/) (e.g., `NewSection.tsx`)
+1. Create component in `src/components/` (e.g., `NewSection.tsx`)
 2. Make it a Server Component by default (no `"use client"`)
-3. Import and add to [src/app/page.tsx](src/app/page.tsx)
+3. Import and add to `src/app/page.tsx`
 4. Use `.glass-card`, `.gradient-text`, and custom animations for consistency
 
 ### Styling Approach
 - **Tailwind first**: Utility classes for layout, spacing, responsive design
-- **Custom CSS**: Only in [src/app/globals.css](src/app/globals.css) for shared effects (gradients, animations, scrollbars)
+- **Custom CSS**: Only in `src/app/globals.css` for shared effects (gradients, animations, scrollbars)
 - **Avoid inline styles**: Use Tailwind classes unless dynamic values require `style` prop
 
 ## Project-Specific Conventions
 
 ### Easter Egg System
-- `EasterEggNav` ([src/components/EasterEggNav.tsx](src/components/EasterEggNav.tsx)) listens for key sequence `m-u-s-i-c`
+- `EasterEggNav` (`src/components/EasterEggNav.tsx`) listens for key sequence `m-u-s-i-c`
 - On completion: plays audio from `/audio/ps3-orchestra.mp3`, sets `sessionStorage.musicUnlocked`, navigates to `/music`
 - The music page exists but is conditionally gated; ensure audio file is present in `public/audio/`
 
 ### Metadata & SEO
-- Managed in [src/app/layout.tsx](src/app/layout.tsx) with OpenGraph support
+- Managed in `src/app/layout.tsx` with OpenGraph support
 - Update title, description, and keywords when personalizing
 
 ### Image Optimization
@@ -83,14 +83,14 @@ npm run lint       # ESLint check (Next.js config)
 ## Common Modifications
 
 ### Update Personal Info
-- Hero section text: [src/components/Hero.tsx](src/components/Hero.tsx)
+- Hero section text: `src/components/Hero.tsx`
 - Experience/Education/Skills: Respective component files
-- Metadata: [src/app/layout.tsx](src/app/layout.tsx)
+- Metadata: `src/app/layout.tsx`
 
 ### Customize Colors
 - Gradient accent: Update `from-primary-500 to-accent-500` Tailwind classes
-- Global styles: Modify gradient stops in [src/app/globals.css](src/app/globals.css)
-- Theme: Edit color scales in [tailwind.config.ts](tailwind.config.ts)
+- Global styles: Modify gradient stops in `src/app/globals.css`
+- Theme: Edit color scales in `tailwind.config.ts`
 
 ### Add New Pages
 - Create route in `src/app/` (e.g., `src/app/newpage/page.tsx`)

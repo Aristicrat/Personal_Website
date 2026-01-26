@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import EasterEggNav from "@/components/EasterEggNav";
+import Navigation from "@/components/Navigation";
 
 export const metadata: Metadata = {
     title: "Roger Aristizabal | Data Analyst & Risk Modeling Professional",
@@ -27,6 +28,7 @@ export default function RootLayout({
                 <div className="bg-gradient-orb orb-2" />
                 <div className="bg-gradient-orb orb-3" />
 
+                <Navigation />
                 <EasterEggNav />
 
                 {children}
