@@ -104,16 +104,18 @@ export default function Contact() {
                     <p className="text-gray-400 mb-6">
                         Book a time that works for you directly on my calendar.
                     </p>
-                    <div className="glass-card rounded-2xl overflow-hidden">
-                        <iframe
-                            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3BXvR0DJp9Qr00YMpIP2K-_4nNRitpv__dhJ2oTwOYaRGw-IQuU-PkensEGtmaekY2dkg9EpSl?gv=true"
-                            style={{ border: 0 }}
-                            width="100%"
-                            height="600"
-                            frameBorder="0"
-                            title="Schedule an appointment"
-                            className="bg-white/5"
-                        />
+                    <div className="relative p-[2px] rounded-2xl bg-gradient-to-r from-primary-500 via-accent-500 to-orange-500 shadow-2xl shadow-primary-500/20">
+                        <div className="rounded-2xl overflow-hidden">
+                            <iframe
+                                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3BXvR0DJp9Qr00YMpIP2K-_4nNRitpv__dhJ2oTwOYaRGw-IQuU-PkensEGtmaekY2dkg9EpSl?gv=true"
+                                style={{ border: 0, background: '#ffffff' }}
+                                width="100%"
+                                height="600"
+                                frameBorder="0"
+                                title="Schedule an appointment"
+                                className="bg-white"
+                            />
+                        </div>
                     </div>
                 </div>
 
