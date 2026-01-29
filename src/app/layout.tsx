@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import EasterEggNav from "@/components/EasterEggNav";
 import Navigation from "@/components/Navigation";
@@ -32,6 +33,7 @@ export default function RootLayout({
                 <EasterEggNav />
 
                 {children}
+                <Analytics />
             </body>
         </html>
     );
