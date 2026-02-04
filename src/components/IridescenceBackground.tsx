@@ -18,7 +18,7 @@ export default function IridescenceBackground() {
     return (
         <div className="fixed inset-0 z-[-2] opacity-50">
             <Iridescence
-                color={[0.1, 0.1, 0.6]}
+                color={[0.3, 0.4, 1.0]}
                 speed={1.0}
                 amplitude={0.1}
                 mouseReact={true}
