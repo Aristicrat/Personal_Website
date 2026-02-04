@@ -2,23 +2,10 @@
 
 import Image from "next/image";
 import GlassSurface from "@/components/ui/GlassSurface";
-import GradualBlur from "@/components/ui/GradualBlur";
 
 export default function Hero() {
     return (
         <section className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden">
-            {/* Gradual Blur effect at bottom of hero */}
-            <GradualBlur
-                position="bottom"
-                strength={2}
-                height="8rem"
-                divCount={5}
-                curve="bezier"
-                exponential={true}
-                opacity={0.8}
-                target="parent"
-            />
-
             <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
                 {/* Profile Image with Glass Surface */}
                 <div className="w-48 h-48 mx-auto mb-8 relative group">
