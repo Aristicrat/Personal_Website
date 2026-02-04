@@ -21,7 +21,7 @@ export default function IridescenceBackground() {
                 color={[0.1, 0.1, 0.6]}
                 speed={1.0}
                 amplitude={0.1}
-                mouseReact={false}
+                mouseReact={true}
             />
         </div>
     );
