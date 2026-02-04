@@ -19,11 +19,6 @@ export default function Navigation() {
     const [activeSection, setActiveSection] = useState("");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    // Hide navigation on music page
-    if (pathname === "/music") {
-        return null;
-    }
-
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
@@ -45,6 +40,11 @@ export default function Navigation() {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // Hide navigation on music page (must be after all hooks)
+    if (pathname === "/music") {
+        return null;
+    }
 
     return (
         <nav
