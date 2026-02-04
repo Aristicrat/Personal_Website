@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const navItems = [
     { label: "About", href: "#about" },
@@ -12,9 +14,15 @@ const navItems = [
 ];
 
 export default function Navigation() {
+    const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState("");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    // Hide navigation on music page
+    if (pathname === "/music") {
+        return null;
+    }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -48,12 +56,12 @@ export default function Navigation() {
         >
             <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
                 {/* Logo/Name */}
-                <a
-                    href="#"
+                <Link
+                    href="/"
                     className="text-lg font-semibold gradient-text hover:opacity-80 transition-opacity"
                 >
                     RA
-                </a>
+                </Link>
 
                 {/* Desktop Navigation */}
                 <div className="hidden md:flex items-center gap-1">

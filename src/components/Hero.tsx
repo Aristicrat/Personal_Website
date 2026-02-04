@@ -80,19 +80,19 @@ export default function Hero() {
                 </GlassSurface>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <a
                         href="#contact"
                         className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-primary-600 to-accent-600 
                        text-white font-medium hover:from-primary-500 hover:to-accent-500 
-                       transition-all duration-300 shadow-lg shadow-primary-500/20"
+                       transition-all duration-300 shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40"
                     >
                         Get in Touch
                     </a>
                     <a
                         href="#experience"
-                        className="px-8 py-3.5 rounded-xl border border-neutral-700/60 text-neutral-200 
-                       font-medium hover:border-primary-500/50 hover:bg-primary-500/5 hover:text-primary-300 
+                        className="px-8 py-3.5 rounded-xl border border-neutral-600 bg-neutral-900/80 text-neutral-200 
+                       font-medium hover:border-primary-500/60 hover:bg-neutral-800/90 hover:text-primary-300 
                        transition-all duration-300"
                     >
                         View Experience
@@ -101,8 +101,8 @@ export default function Hero() {
                         href="/Resume_Aristizabal.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-8 py-3.5 rounded-xl border border-neutral-700/60 text-neutral-200 
-                       font-medium hover:border-accent-500/50 hover:bg-accent-500/5 hover:text-accent-300 
+                        className="px-8 py-3.5 rounded-xl border border-neutral-600 bg-neutral-900/80 text-neutral-200 
+                       font-medium hover:border-accent-500/60 hover:bg-neutral-800/90 hover:text-accent-300 
                        transition-all duration-300 flex items-center gap-2 justify-center"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
