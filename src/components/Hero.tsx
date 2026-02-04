@@ -1,10 +1,26 @@
+"use client";
+
 import Image from "next/image";
+import GlassSurface from "@/components/ui/GlassSurface";
+import GradualBlur from "@/components/ui/GradualBlur";
 
 export default function Hero() {
     return (
-        <section className="min-h-screen flex items-center justify-center px-6 py-20">
+        <section className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden">
+            {/* Gradual Blur effect at bottom of hero */}
+            <GradualBlur
+                position="bottom"
+                strength={2}
+                height="8rem"
+                divCount={5}
+                curve="bezier"
+                exponential={true}
+                opacity={0.8}
+                target="parent"
+            />
+
             <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
-                {/* Profile Image */}
+                {/* Profile Image with Glass Surface */}
                 <div className="w-48 h-48 mx-auto mb-8 relative group">
                     <div className="absolute -inset-1 bg-gradient-to-br from-primary-500 to-accent-500 rounded-full blur-md opacity-60 group-hover:opacity-90 transition duration-700"></div>
                     <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-neutral-800/50">
@@ -18,10 +34,20 @@ export default function Hero() {
                     </div>
                 </div>
 
-                {/* Name */}
-                <h1 className="text-5xl md:text-7xl font-bold mb-4">
-                    <span className="gradient-text">Roger Aristizabal</span>
-                </h1>
+                {/* Name in GlassSurface container */}
+                <GlassSurface
+                    width="100%"
+                    height="auto"
+                    borderRadius={16}
+                    blur={8}
+                    opacity={0.3}
+                    backgroundOpacity={0.05}
+                    className="mb-4 py-4 px-6 mx-auto max-w-fit"
+                >
+                    <h1 className="text-5xl md:text-7xl font-bold">
+                        <span className="gradient-text">Roger Aristizabal</span>
+                    </h1>
+                </GlassSurface>
 
                 {/* Tagline */}
                 <p className="text-xl md:text-2xl text-neutral-400 mb-4">
@@ -37,11 +63,21 @@ export default function Hero() {
                     <span className="text-green-400 text-sm font-medium">Open to new opportunities</span>
                 </div>
 
-                {/* Brief intro */}
-                <p className="text-lg text-neutral-300 max-w-2xl mx-auto mb-12 leading-relaxed">
-                    Mathematics graduate specializing in data analytics, financial modeling, and business intelligence.
-                    Experienced in building data-driven solutions for enterprise clients including PwC and The Juilliard School.
-                </p>
+                {/* Brief intro in GlassSurface */}
+                <GlassSurface
+                    width="100%"
+                    height="auto"
+                    borderRadius={12}
+                    blur={6}
+                    opacity={0.25}
+                    backgroundOpacity={0.03}
+                    className="mb-12 py-6 px-6 mx-auto max-w-2xl"
+                >
+                    <p className="text-lg text-neutral-300 leading-relaxed">
+                        Mathematics graduate specializing in data analytics, financial modeling, and business intelligence.
+                        Experienced in building data-driven solutions for enterprise clients including PwC and The Juilliard School.
+                    </p>
+                </GlassSurface>
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">

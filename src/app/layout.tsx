@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import EasterEggNav from "@/components/EasterEggNav";
 import Navigation from "@/components/Navigation";
+import IridescenceBackground from "@/components/IridescenceBackground";
 
 export const metadata: Metadata = {
     title: "Roger Aristizabal | Data Analyst & Risk Modeling Professional",
@@ -23,7 +24,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body suppressHydrationWarning>
-                {/* Background gradient orbs */}
+                {/* Iridescence animated background */}
+                <IridescenceBackground />
+
+                {/* Background gradient orbs - now overlaid on iridescence */}
                 <div className="bg-gradient-orb orb-1" />
                 <div className="bg-gradient-orb orb-2" />
                 <div className="bg-gradient-orb orb-3" />
