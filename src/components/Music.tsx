@@ -98,11 +98,11 @@ export default function Music() {
         return () => window.removeEventListener("keydown", handler);
     }, [progress]);
 
+    // Show quote at top, hide on scroll
     useEffect(() => {
         const onScroll = () => {
             setShowQuote(window.scrollY < 80);
         };
-        onScroll();
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
@@ -119,17 +119,15 @@ export default function Music() {
     return (
         <section id="music" className="py-20 px-6">
             <div className="max-w-5xl mx-auto">
-                <div
-                    className={`mb-8 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-gray-200 shadow-[0_20px_40px_-30px_rgba(59,130,246,0.6)] backdrop-blur transition-all duration-300 ${
-                        showQuote ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
-                    }`}
-                >
-                    <p className="text-sm uppercase tracking-[0.35em] text-primary-300">A note on music</p>
-                    <p className="mt-2 text-lg md:text-xl font-medium text-white">
-                        “If I were not a physicist, I would probably be a musician. I often think in music.”
-                    </p>
-                    <p className="mt-1 text-sm text-primary-200">— Albert Einstein</p>
-                </div>
+                {showQuote && (
+                    <div className="mb-8 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-gray-200 shadow-[0_20px_40px_-30px_rgba(59,130,246,0.6)] backdrop-blur transition-all duration-300">
+                        <p className="text-sm uppercase tracking-[0.35em] text-primary-300">A note on music</p>
+                        <p className="mt-2 text-lg md:text-xl font-medium text-white">
+                            “If I were not a physicist, I would probably be a musician. I often think in music.”
+                        </p>
+                        <p className="mt-1 text-sm text-primary-200">— Albert Einstein</p>
+                    </div>
+                )}
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
                     <div>
                         <p className="text-sm uppercase tracking-[0.35em] text-primary-400">Soundtrack to the journey</p>
