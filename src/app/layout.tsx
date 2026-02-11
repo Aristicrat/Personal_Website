@@ -3,6 +3,7 @@ import "./globals.css";
 import EasterEggNav from "@/components/EasterEggNav";
 import Navigation from "@/components/Navigation";
 import IridescenceBackground from "@/components/IridescenceBackground";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
     title: "Roger Aristizabal | Data Analyst & Risk Modeling Professional",
@@ -36,6 +37,7 @@ export default function RootLayout({
                 <EasterEggNav />
 
                 {children}
+                <Analytics />
             </body>
         </html>
     );
