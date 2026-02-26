@@ -23,6 +23,14 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 120px;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

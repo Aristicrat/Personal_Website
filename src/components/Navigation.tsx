@@ -25,21 +25,32 @@ export default function Navigation() {
 
             // Determine active section
             const sections = navItems.map((item) => item.href.slice(1));
+            let found = false;
             for (const section of sections.reverse()) {
                 const element = document.getElementById(section);
                 if (element) {
                     const rect = element.getBoundingClientRect();
                     if (rect.top <= 150) {
                         setActiveSection(section);
+                        found = true;
                         break;
                     }
                 }
             }
+            if (!found) setActiveSection("");
         };
 
+        handleScroll();
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    useEffect(() => {
+        document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [mobileMenuOpen]);
 
     // Hide navigation on music page (must be after all hooks)
     if (pathname === "/music") {
@@ -167,7 +178,7 @@ export default function Navigation() {
 
                     {/* Collapsed Nav Links */}
                     <div className="hidden md:flex items-center gap-0.5">
-                        {navItems.slice(0, 4).map((item) => (
+                        {navItems.slice(0, 5).map((item) => (
                             <a
                                 key={item.href}
                                 href={item.href}
