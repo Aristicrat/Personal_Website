@@ -3,11 +3,7 @@ import "./globals.css";
 import EasterEggNav from "@/components/EasterEggNav";
 import Navigation from "@/components/Navigation";
 import IridescenceBackground from "@/components/IridescenceBackground";
-<<<<<<< HEAD
 import { SpeedInsights } from "@vercel/speed-insights/next";
-=======
-import { SpeedInsights } from "@vercel/speed-insights/next";
->>>>>>> bf4517c417776c3b141ed9a773d11eefff9d5640
 
 export const metadata: Metadata = {
     title: "Roger Aristizabal | Data Analyst & Risk Modeling Professional",
