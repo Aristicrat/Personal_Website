@@ -11,66 +11,63 @@ interface Project {
 
 const projects: Project[] = [
     {
-        title: "Entity Verification Pipeline Tools",
+        title: "PolyCopy",
         description:
-            "Built and optimized JavaScript and SQL-driven internal tools at Middesk to resolve edge cases in automated entity-verification pipelines, improving data accuracy across multi-state databases.",
-        technologies: ["JavaScript", "SQL", "REST APIs"],
-        highlight: "Reduced manual review workload",
-        // github: "https://github.com/Rogeraristi/entity-verification", // Add when available
-    },
-    {
-        title: "VBA Reinsurance Product Model",
-        description:
-            "Developed and maintained a VBA-based group reinsurance product model at PwC supporting financial projections for a $250M line of business.",
-        technologies: ["Excel VBA", "Financial Modeling", "Risk Analysis"],
-        highlight: "$250M line of business",
-    },
-    {
-        title: "SQL Dashboard for Life Insurance",
-        description:
-            "Led a SQL-based dashboard project for a major life insurer at PwC, cutting manual reporting time by 35% and presenting findings in client meetings.",
-        technologies: ["SQL", "AWS QuickSight", "Power BI", "Tableau"],
-        highlight: "35% reduction in reporting time",
-    },
-    {
-        title: "Juilliard Web Dashboards",
-        description:
-            "Built SQL queries and Python-based data pipelines to extract, clean, and integrate multi-source data into dynamic web dashboards, reducing manual data handling by 30%.",
-        technologies: ["Python", "SQL", "HTML", "CSS", "JavaScript"],
-        highlight: "30% efficiency improvement",
-    },
-    {
-        title: "FY24 Grants & Donations Tracker",
-        description:
-            "Designed Excel VBA dashboards at The Juilliard School to track FY24 grants and donations, improving reporting efficiency and guiding strategic fund allocation decisions.",
-        technologies: ["Excel VBA", "Data Analytics", "Dashboard Design"],
-        highlight: "Strategic decision support",
-    },
-    {
-        title: "Variable Annuity UMA Testing Automation",
-        description:
-            "Automated Variable Annuity UMA testing with Excel VBA at PwC, applying Martingale and Black-Scholes models to improve accuracy and reduce processing time by 20%.",
-        technologies: ["Excel VBA", "Black-Scholes", "Martingale Models"],
-        highlight: "20% faster processing",
+            "PolyCopy is a full-stack Polymarket intelligence and trade-copy platform I built to monitor trader wallets in real time, surface leaderboard performance by period (today, weekly, monthly, all-time), and generate copy-trade order payloads with configurable sizing. The app combines a React + TypeScript frontend (Vite, Tailwind, Recharts) with an Express/WebSocket backend that streams live trades, computes trader analytics, supports Google OAuth session management, integrates wallet connectivity, and uses Firebase-backed snapshot storage/caching to keep leaderboard and profile insights fast and reliable.",
+        technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "Express.js", "WebSocket", "Firebase", "Google OAuth", "Recharts"],
+        highlight: "Featured Product",
+        github: "https://github.com/Rogeraristi/polycopy",
+        demo: "https://polycopy-client.vercel.app/",
     },
 ];
 
 export default function Projects() {
     return (
-        <section id="projects" className="py-20 px-6">
+        <section id="projects" className="py-20 px-6 bg-gradient-to-b from-primary-500/10 via-transparent to-transparent">
             <div className="max-w-4xl mx-auto">
+                <div className="flex justify-center mb-4">
+                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-primary-500/20 text-primary-300 border border-primary-500/40">
+                        Featured Highlight
+                    </span>
+                </div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
                     Featured <span className="gradient-text">Projects</span>
                 </h2>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 gap-6">
                     {projects.map((project, index) => (
                         <GlassSurface
                             key={index}
-                            className="p-6 hover-glow group flex flex-col"
+                            className="p-6 md:p-7 hover-glow group flex flex-col border border-primary-500/30"
                             borderRadius={16}
                         >
                             <div className="flex-1">
+                                {project.demo && (
+                                    <div className="mb-5 rounded-xl border border-gray-700/70 bg-gradient-to-b from-gray-900/90 to-gray-950/90 p-3">
+                                        <div className="flex items-center gap-2 mb-3 px-1">
+                                            <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
+                                            <span className="w-2.5 h-2.5 rounded-full bg-yellow-400/80" />
+                                            <span className="w-2.5 h-2.5 rounded-full bg-green-400/80" />
+                                            <span className="text-[11px] text-gray-400 ml-2 truncate">{project.demo}</span>
+                                        </div>
+                                        <div
+                                            className="block rounded-lg overflow-hidden border border-gray-700/70 bg-black"
+                                            aria-label={`${project.title} live preview`}
+                                        >
+                                            <div className="relative aspect-[16/9]">
+                                                <iframe
+                                                    src={project.demo}
+                                                    title={`${project.title} preview`}
+                                                    loading="lazy"
+                                                    className="w-full h-full"
+                                                    sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                                                    referrerPolicy="no-referrer-when-downgrade"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
                                 <div className="flex items-start justify-between mb-3">
                                     <h3 className="text-lg font-semibold text-white group-hover:text-primary-400 transition-colors">
                                         {project.title}
