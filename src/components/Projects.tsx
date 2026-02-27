@@ -19,6 +19,15 @@ const projects: Project[] = [
         github: "https://github.com/Rogeraristi/polycopy",
         demo: "https://polycopy-client.vercel.app/",
     },
+    {
+        title: "Corno",
+        description:
+            "Corno is a premium guitar and instrument tuning platform I built to deliver accurate real-time pitch detection, a calm iOS-inspired interface, and production-grade tuning workflows across web and iOS environments. The app combines a modern React + TypeScript frontend (Next.js, Tailwind) with low-latency audio analysis logic, responsive visual feedback for tuning precision, and deployment-ready architecture optimized for reliable performance, polished UX, and cross-platform release readiness.",
+        technologies: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Vercel"],
+        highlight: "Featured Project",
+        github: "https://github.com/Rogeraristi/Corno",
+        demo: "https://corno.vercel.app/",
+    },
 ];
 
 export default function Projects() {
@@ -38,9 +47,9 @@ export default function Projects() {
                 </p>
 
                 <div className="grid grid-cols-1 gap-6">
-                    {projects.map((project, index) => (
+                    {projects.map((project) => (
                         <GlassSurface
-                            key={index}
+                            key={project.title}
                             className="p-5 md:p-8 hover-glow group flex flex-col border border-primary-500/30 shadow-xl shadow-primary-900/10"
                             borderRadius={16}
                         >
