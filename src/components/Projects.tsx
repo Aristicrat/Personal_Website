@@ -16,7 +16,7 @@ const projects: Project[] = [
             "PolyCopy is a full-stack Polymarket intelligence and trade-copy platform I built to monitor trader wallets in real time, surface leaderboard performance by period (today, weekly, monthly, all-time), and generate copy-trade order payloads with configurable sizing. The app combines a React + TypeScript frontend (Vite, Tailwind, Recharts) with an Express/WebSocket backend that streams live trades, computes trader analytics, supports Google OAuth session management, integrates wallet connectivity, and uses Firebase-backed snapshot storage/caching to keep leaderboard and profile insights fast and reliable.",
         technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "Express.js", "WebSocket", "Firebase", "Google OAuth", "Recharts"],
         highlight: "Featured Product",
-        github: "https://github.com/Rogeraristi/polycopy",
+        github: "https://github.com/aristicrat/polycopy",
         demo: "https://polycopy-client.vercel.app/",
     },
     {
@@ -25,7 +25,7 @@ const projects: Project[] = [
             "Corno is a premium guitar and instrument tuning platform I built to deliver accurate real-time pitch detection, a calm iOS-inspired interface, and production-grade tuning workflows across web and iOS environments. The app combines a modern React + TypeScript frontend (Next.js, Tailwind) with low-latency audio analysis logic, responsive visual feedback for tuning precision, and deployment-ready architecture optimized for reliable performance, polished UX, and cross-platform release readiness.",
         technologies: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Vercel"],
         highlight: "Featured Project",
-        github: "https://github.com/Rogeraristi/Corno",
+        github: "https://github.com/aristicrat/Corno",
         demo: "https://corno.vercel.app/",
     },
 ];
