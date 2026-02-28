@@ -9,12 +9,21 @@ const audioSrc = "/audio/ps3-orchestra.mp3"; // place PS3-style startup/tuning a
 export default function EasterEggNav() {
     const router = useRouter();
     const [progress, setProgress] = useState(0);
+    const progressRef = useRef(0);
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
     // Initialize audio only on client side after mount
     useEffect(() => {
         audioRef.current = new Audio(audioSrc);
         audioRef.current.volume = 0.35;
+
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current.src = "";
+                audioRef.current = null;
+            }
+        };
     }, []);
 
     const handleNavigateToMusic = useCallback(() => {
@@ -27,28 +36,48 @@ export default function EasterEggNav() {
     }, [router]);
 
     useEffect(() => {
+        progressRef.current = progress;
+    }, [progress]);
+
+    useEffect(() => {
         const handler = (event: KeyboardEvent) => {
+            const target = event.target as HTMLElement | null;
+            const tagName = target?.tagName;
+            if (
+                target?.isContentEditable ||
+                tagName === "INPUT" ||
+                tagName === "TEXTAREA" ||
+                tagName === "SELECT"
+            ) {
+                return;
+            }
+
             const key = event.key.toLowerCase();
-            const expected = unlockSequence[progress];
+            const currentProgress = progressRef.current;
+            const expected = unlockSequence[currentProgress];
 
             if (key === expected) {
-                const next = progress + 1;
+                const next = currentProgress + 1;
                 if (next === unlockSequence.length) {
+                    progressRef.current = 0;
                     handleNavigateToMusic();
                     setProgress(0);
                 } else {
+                    progressRef.current = next;
                     setProgress(next);
                 }
             } else if (key === unlockSequence[0]) {
+                progressRef.current = 1;
                 setProgress(1);
             } else {
+                progressRef.current = 0;
                 setProgress(0);
             }
         };
 
         window.addEventListener("keydown", handler);
         return () => window.removeEventListener("keydown", handler);
-    }, [progress, handleNavigateToMusic]);
+    }, [handleNavigateToMusic]);
 
     return (
         <div className="fixed top-4 right-4 z-50 flex flex-col items-end gap-2 pointer-events-none">

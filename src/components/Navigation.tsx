@@ -26,7 +26,8 @@ export default function Navigation() {
             // Determine active section
             const sections = navItems.map((item) => item.href.slice(1));
             let found = false;
-            for (const section of sections.reverse()) {
+            for (let idx = sections.length - 1; idx >= 0; idx -= 1) {
+                const section = sections[idx];
                 const element = document.getElementById(section);
                 if (element) {
                     const rect = element.getBoundingClientRect();
@@ -41,7 +42,7 @@ export default function Navigation() {
         };
 
         handleScroll();
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -111,6 +112,8 @@ export default function Navigation() {
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         className="md:hidden p-2 text-neutral-400 hover:text-neutral-100 transition-colors"
                         aria-label="Toggle menu"
+                        aria-expanded={mobileMenuOpen}
+                        aria-controls="mobile-navigation-menu"
                     >
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             {mobileMenuOpen ? (
@@ -124,7 +127,10 @@ export default function Navigation() {
 
                 {/* Mobile Menu */}
                 {mobileMenuOpen && (
-                    <div className="md:hidden bg-neutral-950/90 backdrop-blur-xl border-t border-neutral-800/30 mt-2">
+                    <div
+                        id="mobile-navigation-menu"
+                        className="md:hidden bg-neutral-950/90 backdrop-blur-xl border-t border-neutral-800/30 mt-2"
+                    >
                         <div className="px-6 py-4 space-y-2">
                             {navItems.map((item) => (
                                 <a

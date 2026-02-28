@@ -72,12 +72,12 @@ export default function Contact() {
 
                 {/* Social Links */}
                 <div className="flex justify-center gap-4 mb-12">
-                    {socialLinks.map((social, index) => (
+                    {socialLinks.map((social) => (
                         <a
-                            key={index}
+                            key={social.name}
                             href={social.url}
-                            target={social.name === "Phone" ? "_self" : "_blank"}
-                            rel="noopener noreferrer"
+                            target={social.name === "Phone" || social.name === "Email" ? "_self" : "_blank"}
+                            rel={social.name === "Phone" || social.name === "Email" ? undefined : "noopener noreferrer"}
                             className="block group"
                             aria-label={social.name}
                         >
